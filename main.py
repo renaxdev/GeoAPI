@@ -44,6 +44,6 @@ def BTC():
         return f"{price:{price}}"
     
     except:
-        return "{Internal Server Error:ERROR}"
+        return {"Internal Server Error": "ERROR 500"}
 
 
