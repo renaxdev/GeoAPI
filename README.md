@@ -12,7 +12,7 @@ You simply need to make a HTTP/GET Request to the API and it'll answer with a js
 
 You can use the preinstalled tool cURL to perform a HTTP/GET request
 - Open up your terminal
-- Enter `curl -X GET https://stoonks-api.herokuapp.com/`
+- Enter `curl https://stoonks-api.herokuapp.com/`
 - And you are done
 
 There are many different ways to perform a HTTP/GET Request
