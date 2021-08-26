@@ -1,3 +1,10 @@
-import requests
+import requests 
+from bs4 import BeautifulSoup
 
-print(requests.get("https://www.coingecko.com/de/munze/bitcoin"))
+URL = 'https://www.coindesk.com/price/bitcoin'
+website = requests.get(URL)
+results = BeautifulSoup(website.content, 'html.parser')
+
+price = results.find_all('div', class_='price-large')
+for i in price:
+    print(i.text.strip())

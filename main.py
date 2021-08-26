@@ -1,5 +1,9 @@
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
+import requests 
+from bs4 import BeautifulSoup
+
+import req_func
 
 app = FastAPI()
 
@@ -32,4 +36,10 @@ DELETE = delete smth
 @app.get("/")
 def Welcome():
     return "Welcome! Use https://stoonks-api.herokuapp.com/docs to learn how to use the API!"
+
+@app.get("/bitcoin")
+def BTC():
+    price = get_btc()
+    return f"{price:{price}}"
+
 
