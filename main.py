@@ -11,5 +11,6 @@ DELETE = delete smth
 """
 
 @app.get("/")
-def home():
-    return{"Hello": "World"},{"Welcome to": "Our First API"}
+def Welcome():
+    return "Welcome!"
+
