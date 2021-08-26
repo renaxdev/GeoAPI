@@ -36,17 +36,8 @@ DELETE = delete smth
 
 @app.get("/", response_class=HTMLResponse)
 def Welcome():
-    return """
-    <html>
-        <head>
-            <title>Welcome</title>
-        </head>
-        <body>
-            <h1>Welcome to Stonks API</h1>
-            <img src="https://media.discordapp.net/attachments/879671944637722625/880421415789162516/Neues_Projekt1.png?width=1440&height=480" alt="logo">
-        </body>
-    </html>
-    """
+    return "Welcome"
+    
 @app.get("/bitcoin")
 def BTC():
     #try:
