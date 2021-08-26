@@ -5,6 +5,9 @@ from bs4 import BeautifulSoup
 
 import req_func
 
+
+html = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>A Basic HTML5 Template</title><meta name="description" content="A simple HTML5 Template for new projects."><meta name="author" content="SitePoint"></head><body</body></html>'
+
 app = FastAPI()
 
 def custom_openapi():
@@ -35,7 +38,7 @@ DELETE = delete smth
 
 @app.get("/")
 def Welcome():
-    return "Welcome! Use https://stoonks-api.herokuapp.com/docs to learn how to use the API!"
+    return
 
 @app.get("/bitcoin")
 def BTC():
