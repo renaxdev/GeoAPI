@@ -12,4 +12,4 @@ DELETE = delete smth
 
 @app.get("/")
 def home():
-    return {"Data": "Test"}
+    return{"Hello": "World"},{"Welcome to": "Our First API"}
