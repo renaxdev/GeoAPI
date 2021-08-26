@@ -8,14 +8,14 @@ Its written in Python using the FastAPI Framework.
 Go to [StonksAPI](https://stoonks-api.herokuapp.com/)
 
 ## How to use 🛠
-You simply need to make a GET Request to the API and it'll answer with a json string
+You simply need to make a HTTP/GET Request to the API and it'll answer with a json string
 
-You can use the preinstalled tool cURL to perform a GET request
+You can use the preinstalled tool cURL to perform a HTTP/GET request
 - Open up your terminal
-- Enter `curl https://stoonks-api.herokuapp.com/`
+- Enter `curl -X GET https://stoonks-api.herokuapp.com/`
 - And you are done
 
-There are many different ways to perform a GET Request
+There are many different ways to perform a HTTP/GET Request
 
 ## Developer Team 👨‍💻
 This API is developed and maintained by [RenaxDev](https://github.com/renaxdev/) and [JuDev](https://github.com/Jahid06)
