@@ -39,7 +39,11 @@ def Welcome():
 
 @app.get("/bitcoin")
 def BTC():
-    price = get_btc()
-    return f"{price:{price}}"
+    try:
+        price = get_btc()
+        return f"{price:{price}}"
+    
+    except:
+        return "{Internal Server Error: ERROR}"
 
 
