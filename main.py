@@ -1,12 +1,10 @@
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
-from fastapi.responses import HTMLResponse
 
 import requests 
 from bs4 import BeautifulSoup
 
 import req_func
-
 
 def custom_openapi():
     if app.openapi_schema:
