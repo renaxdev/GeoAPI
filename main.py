@@ -1,14 +1,12 @@
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
+from fastapi.responses import HTMLResponse
+
 import requests 
 from bs4 import BeautifulSoup
 
 import req_func
 
-
-html = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>A Basic HTML5 Template</title><meta name="description" content="A simple HTML5 Template for new projects."><meta name="author" content="SitePoint"></head><body</body></html>'
-
-app = FastAPI()
 
 def custom_openapi():
     if app.openapi_schema:
@@ -38,8 +36,17 @@ DELETE = delete smth
 
 @app.get("/")
 def Welcome():
-    return
-
+    return """
+    <html>
+        <head>
+            <title>Welcome</title>
+        </head>
+        <body>
+            <h1>Welcome to Stonks API</h1>
+            <img src="https://media.discordapp.net/attachments/879671944637722625/880421415789162516/Neues_Projekt1.png?width=1440&height=480" alt="logo">
+        </body>
+    </html>
+    """
 @app.get("/bitcoin")
 def BTC():
     #try:
