@@ -34,7 +34,7 @@ DELETE = delete smth
 
 """
 
-@app.get("/")
+@app.get("/", response_class=HTMLResponse)
 def Welcome():
     return """
     <html>
