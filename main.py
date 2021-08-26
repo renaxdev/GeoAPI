@@ -34,10 +34,10 @@ DELETE = delete smth
 
 """
 
-@app.get("/", response_class=HTMLResponse)
+@app.get("/")
 def Welcome():
     return "Welcome"
-    
+
 @app.get("/bitcoin")
 def BTC():
     #try:
