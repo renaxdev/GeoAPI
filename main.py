@@ -49,6 +49,12 @@ app.openapi = custom_openapi
 def Welcome():
     return "Welcome! Use https://geography-api.herokuapp.com/docs to learn how to use the API!"
 
+"""
+Aufgabe:
+-Wichtige Daten aus dem Wikipedia Beitrag fetchen
+--> mit ct_wiki.content kriegst du den ganzen content returned
+
+"""
 @app.get("/country/{country}")
 def country(country: str):
     ct_wiki = wikipedia.page(country)
