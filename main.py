@@ -15,6 +15,10 @@ WICHTIG:
 WENN ETWAS BEI HEROKU NICHT GEHT, SCHREIB MIR DIREKT AN
 !!!
 
+DONT TOUCH:
+- Procfile
+- requirements.txt --> wenn du neue libs hinzugefügt hast, schreib mir 
+
 """
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
