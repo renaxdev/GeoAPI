@@ -9,6 +9,12 @@ POST = Sending to endpoint
 PUT = update existing smth
 DELETE = delete smth
 
+
+WICHTIG:
+
+WENN ETWAS BEI HEROKU NICHT GEHT, SCHREIB MIR DIREKT AN
+!!!
+
 """
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
