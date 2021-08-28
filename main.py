@@ -24,6 +24,7 @@ from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
 import requests 
 from bs4 import BeautifulSoup
+import wikipedia
 
 app = FastAPI()
 
@@ -50,5 +51,14 @@ def Welcome():
 
 @app.get("/country/{country}")
 def country(country: str):
-    return country
+    ct_wiki = wikipedia.page(country)
+    inv = {
+        "data": {
+            "title": ct_wiki.title,
+            "url": ct_wiki.url,
+            "citizen": "test"
+        }
+    }
+    return inv
+
 
