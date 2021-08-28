@@ -1,11 +1,10 @@
-# StonksAPI 📈
-![StonksAPI](https://media.discordapp.net/attachments/871661927485542403/880421256317517854/Neues_Projekt1.png?width=1440&height=480)
+# GeoAPI
 
-## About StonksAPI 
-StonksAPI is an Open-Source API for many different stocks.
+## About GeoAPI
+GeoAPI is an Open-Source API for data from many different countrys
 Its written in Python using the FastAPI Framework.
 
-Go to [StonksAPI](https://stoonks-api.herokuapp.com/)
+Go to [GeoAPI](https://stoonks-api.herokuapp.com/)
 
 ## How to use 🛠
 You simply need to make a HTTP/GET Request to the API and it'll answer with a json string
