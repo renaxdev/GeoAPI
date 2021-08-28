@@ -1,3 +1,15 @@
+"""
+Run Local Webserver with: uvicorn main:app --reload
+
+Open at: http://127.0.0.1:8000/
+
+Requests List:
+GET = Returning
+POST = Sending to endpoint
+PUT = update existing smth
+DELETE = delete smth
+
+"""
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
 import requests 
@@ -23,15 +35,6 @@ def custom_openapi():
     return app.openapi_schema
 
 app.openapi = custom_openapi
-
-"""
-Requests List:
-GET = Returning
-POST = Sending to endpoint
-PUT = update existing smth
-DELETE = delete smth
-
-"""
 
 @app.get("/")
 def Welcome():
