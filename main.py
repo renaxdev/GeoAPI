@@ -48,4 +48,7 @@ app.openapi = custom_openapi
 def Welcome():
     return "Welcome! Use https://geography-api.herokuapp.com/docs to learn how to use the API!"
 
+@app.get("/country/{country}")
+def country(country: str):
+    return country
 
