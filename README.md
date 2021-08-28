@@ -1,17 +1,17 @@
 # GeoAPI
-
+![GeoAPI](https://i.imgflip.com/4qp9rs.jpg)
 ## About GeoAPI
 GeoAPI is an Open-Source API for data from many different countrys
 Its written in Python using the FastAPI Framework.
 
-Go to [GeoAPI](https://stoonks-api.herokuapp.com/)
+Go to [GeoAPI](https://geography-api.herokuapp.com/)
 
 ## How to use 🛠
 You simply need to make a HTTP/GET Request to the API and it'll answer with a json string
 
 You can use the preinstalled tool cURL to perform a HTTP/GET request
 - Open up your terminal
-- Enter `curl https://stoonks-api.herokuapp.com/`
+- Enter `curl https://geography-api.herokuapp.com/`
 - And you are done
 
 There are many different ways to perform a HTTP/GET Request
