@@ -22,11 +22,12 @@ DONT TOUCH:
 """
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
-import requests 
+import requests
 from bs4 import BeautifulSoup
 import wikipedia
 
 app = FastAPI()
+
 
 def custom_openapi():
     if app.openapi_schema:
@@ -43,11 +44,14 @@ def custom_openapi():
     app.openapi_schema = openapi_schema
     return app.openapi_schema
 
+
 app.openapi = custom_openapi
 
-@app.get("/")
+
+@app.get("/", tags=["welcome"])
 def Welcome():
     return "Welcome! Use https://geography-api.herokuapp.com/docs to learn how to use the API!"
+
 
 """
 Aufgabe:
@@ -55,16 +59,21 @@ Aufgabe:
 --> mit ct_wiki.content kriegst du den ganzen content returned
 
 """
-@app.get("/country/{country}")
+
+
+@app.get("/country/{country}", tags=["country"])
 def country(country: str):
     ct_wiki = wikipedia.page(country)
+
     inv = {
-        "data": {
+        "country": {
             "title": ct_wiki.title,
             "url": ct_wiki.url,
-            "citizen": "test"
+            "official language": "Pass",
+            "capital": "Pass",
+            "seat": "Pass",
+            "citizen": "Pass",
+            "area": "Pass",
         }
     }
     return inv
-
-
