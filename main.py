@@ -61,7 +61,11 @@ def Welcome():
 
 @app.get("/country/{country}", tags=["country"])
 def country(country: str):
-    ct_wiki = wikipedia.page(country)
+    try:
+        ct_wiki = wikipedia.page(country)
+    except wikipedia.exceptions.DisambiguationError:
+        return {"Error 500": f"{country} may refer to something else"}
+        
     inv = {
         "country": {
             "title": ct_wiki.title,
