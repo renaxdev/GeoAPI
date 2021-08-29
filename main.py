@@ -20,15 +20,19 @@ DONT TOUCH:
 - requirements.txt --> wenn du neue libs hinzugefügt hast, schreib mir 
 
 """
+
+#--------Libs------#
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
 import requests
 from bs4 import BeautifulSoup
 import wikipedia
 
+#-------other--------#
+
 app = FastAPI()
 
-
+#---------openapi docs--------#
 def custom_openapi():
     if app.openapi_schema:
         return app.openapi_schema
@@ -47,7 +51,7 @@ def custom_openapi():
 
 app.openapi = custom_openapi
 
-
+#---------ENDPOINTS--------#
 @app.get("/", tags=["welcome"])
 def Welcome():
     return "Welcome! Use https://geography-api.herokuapp.com/docs to learn how to use the API!"
@@ -64,13 +68,16 @@ Aufgabe:
 @app.get("/country/{country}", tags=["country"])
 def country(country: str):
     ct_wiki = wikipedia.page(country)
-
+    site = requests.get(ct_wiki.url)
+    soup = BeautifulSoup(site.content, "html.parser")
+    capital_class = soup.find("td", class_="infobox-data")
+    capital = capital_class.find("a").text.strip()
     inv = {
         "country": {
             "title": ct_wiki.title,
             "url": ct_wiki.url,
-            "official language": "Pass",
-            "capital": "Pass",
+            "official_language": "Pass",
+            "capital": capital,
             "seat": "Pass",
             "citizen": "Pass",
             "area": "Pass",
