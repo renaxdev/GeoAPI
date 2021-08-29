@@ -64,17 +64,17 @@ def country(country: str):
     try:
         ct_wiki = wikipedia.page(country)
     except wikipedia.exceptions.DisambiguationError:
-        return {"Error 500": f"{country} may refer to something else"}
+        return {"error 500": f"{country} may refer to something else"}
         
     inv = {
         "country": {
             "title": ct_wiki.title,
             "url": ct_wiki.url,
-            "official_language": " ",
+            "official_language": "",
             "capital": fetch.get_capital(ct_wiki.url),
-            "seat": " ",
-            "citizen": " ",
-            "area": " ",
+            "seat": "",
+            "citizen": "",
+            "area": "",
         }
     }
     return inv
