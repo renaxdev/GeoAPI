@@ -24,8 +24,6 @@ DONT TOUCH:
 #--------Libs------#
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
-#import requests
-#from bs4 import BeautifulSoup
 import wikipedia
 
 import fetch
