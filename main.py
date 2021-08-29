@@ -28,6 +28,9 @@ import wikipedia
 
 import fetch
 
+import requests
+import json
+
 #-------other--------#
 
 app = FastAPI()
@@ -59,20 +62,28 @@ def Welcome():
 
 @app.get("/country/{country}", tags=["country"])
 def country(country: str):
+
     try:
-        ct_wiki = wikipedia.page(country)
-    except wikipedia.exceptions.DisambiguationError:
-        return {"error 500": f"{country} may refer to something else"}
+        filter_api = requests.get(f"https://coronavirus-19-api.herokuapp.com/countries/{country}")
+        f = filter_api.json()
+
+        try:
+            ct_wiki = wikipedia.page(country)
+        except wikipedia.exceptions.DisambiguationError:
+            return {"error 500": f"{country} may refer to something else"}
         
-    inv = {
-        "country": {
-            "title": ct_wiki.title,
-            "url": ct_wiki.url,
-            "official_language": "",
-            "capital": fetch.get_capital(ct_wiki.url),
-            "seat": "",
-            "citizen": "",
-            "area": "",
+        inv = {
+            "country": {
+                "title": ct_wiki.title,
+                "url": ct_wiki.url,
+                "official_language": "",
+                "capital": fetch.get_capital(ct_wiki.url),
+                "seat": "",
+                "citizen": "",
+                "area": "",
+            }
         }
-    }
-    return inv
+        return inv
+
+    except json.decoder.JSONDecodeError:
+        return "Enter a real country"

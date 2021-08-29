@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import json
 
 def get_capital(url):
     site = requests.get(url)
