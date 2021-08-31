@@ -78,9 +78,12 @@ def country(country: str):
                 "url": ct_wiki.url,
                 "official_language": fetch.get_lang(ct_wiki.url),
                 "capital": fetch.get_capital(ct_wiki.url),
-                "seat": "",
+                "president": "",
                 "citizen": "",
                 "area": "",
+                "currency": "",
+                "timezone": "",
+                "iso3166": ""
             }
         }
         return inv
