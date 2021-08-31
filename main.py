@@ -80,13 +80,13 @@ def country(country: str):
                 "official_language": fetch.get_lang(ct_wiki.url),
                 "capital": fetch.get_capital(ct_wiki.url),
                 "president": fetch.get_president(ct_wiki.url),
-                "citizen": "",
-                "area": "",
+                "citizen": fetch.get_citizen(ct_wiki.url),
+                "area": fetch.get_area(ct_wiki.url),
                 "longitude": fetch.get_longitude(ct_wiki.url),
                 "latitude": fetch.get_latitude(ct_wiki.url),
-                "currency": "",
-                "timezone": "",
-                "iso3166": ""
+                "currency": fetch.get_currency(ct_wiki.url),
+                "timezone": fetch.get_timezn(ct_wiki.url),
+                "iso3166": fetch.get_iso(ct_wiki.url)
             }
         }
         return inv

@@ -23,31 +23,23 @@ def get_president(url):
     site = requests.get(url)
     soup = BeautifulSoup(site.content, "html.parser")
     classes = soup.find_all("td", class_="infobox-data")
-    president = classes[4].find("a").text.strip()
+    president = classes[4].text.strip()
     return president
 
 
 def get_citizen(url):
-    """
-    Es gibt keine Live Zahlen.
-    Nur Stände von Jahren.
-    Z.B Stand 2020: 83.656....mio Einwohner
-    """
     site = requests.get(url)
     soup = BeautifulSoup(site.content, "html.parser")
     classes = soup.find_all("td", class_="infobox-data")
-    citizen = classes[3].find("img").text.strip()
+    citizen = classes[17].text.strip() #Unnötige Sachen weglöschen lassen
     return citizen
 
 
-def get_area():
-    """
-    Das selbe Problem
-    """
-    site = requests.get("https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_area")
+def get_area(url):
+    site = requests.get(url)
     soup = BeautifulSoup(site.content, "html.parser")
     classes = soup.find_all("td", class_="infobox-data")
-    area = classes[0].find("a").text.strip()
+    area = classes[15].text.strip() #Unnötige Sachen weglöschen lassen
     return area
 
 
@@ -65,3 +57,24 @@ def get_latitude(url):
     classes = soup.find_all("span", class_="latitude")
     latitude = classes[0].text.strip()
     return latitude
+
+def get_currency(url):
+    site = requests.get(url)
+    soup = BeautifulSoup(site.content, "html.parser")
+    classes = soup.find_all("td", class_="infobox-data")
+    currency = classes[27].text.strip()
+    return currency    
+
+def get_timezn(url):
+    site = requests.get(url)
+    soup = BeautifulSoup(site.content, "html.parser")
+    classes = soup.find_all("td", class_="infobox-data")
+    timezone = classes[28].text.strip()
+    return timezone
+
+def get_iso(url):
+    site = requests.get(url)
+    soup = BeautifulSoup(site.content, "html.parser")
+    classes = soup.find_all("td", class_="infobox-data")
+    iso = classes[31].text.strip()
+    return iso
