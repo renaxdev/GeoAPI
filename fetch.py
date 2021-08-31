@@ -12,7 +12,13 @@ def get_capital(url):
 def get_lang(url):
     site = requests.get(url)
     soup = BeautifulSoup(site.content, "html.parser")
-    lang_class = soup.find_all("td", class_="infobox-data")
-    lang = lang_class[1].find("a").text.strip()
+    classes = soup.find_all("td", class_="infobox-data")
+    lang = classes[1].find("a").text.strip()
     return lang
 
+def get_president(url):
+    site = requests.get(url)
+    soup = BeautifulSoup(site.content, "html.parser")
+    classes = soup.find_all("td", class_="infobox-data")
+    president = classes[1].find("a").text.strip()
+    return president
