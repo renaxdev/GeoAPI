@@ -76,7 +76,7 @@ def country(country: str):
             "country": {
                 "title": ct_wiki.title,
                 "url": ct_wiki.url,
-                "official_language": "",
+                "official_language": fetch.get_lang(ct_wiki.url),
                 "capital": fetch.get_capital(ct_wiki.url),
                 "seat": "",
                 "citizen": "",
