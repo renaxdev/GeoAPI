@@ -21,7 +21,7 @@ DONT TOUCH:
 
 """
 
-#--------Libs------#
+# --------Libs------#
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
 import wikipedia
@@ -31,11 +31,12 @@ import fetch
 import requests
 import json
 
-#-------other--------#
+# -------other--------#
 
 app = FastAPI()
 
-#---------openapi docs--------#
+
+# ---------openapi docs--------#
 def custom_openapi():
     if app.openapi_schema:
         return app.openapi_schema
@@ -54,7 +55,8 @@ def custom_openapi():
 
 app.openapi = custom_openapi
 
-#---------ENDPOINTS--------#
+
+# ---------ENDPOINTS--------#
 @app.get("/", tags=["welcome"])
 def Welcome():
     return "Welcome! Use https://geography-api.herokuapp.com/docs to learn how to use the API!"
@@ -62,7 +64,6 @@ def Welcome():
 
 @app.get("/country/{country}", tags=["country"])
 def country(country: str):
-
     try:
         filter_api = requests.get(f"https://coronavirus-19-api.herokuapp.com/countries/{country}")
         f = filter_api.json()
@@ -71,7 +72,7 @@ def country(country: str):
             ct_wiki = wikipedia.page(country)
         except wikipedia.exceptions.DisambiguationError:
             return {"error 500": f"{country} may refer to something else"}
-        
+
         inv = {
             "country": {
                 "title": ct_wiki.title,
