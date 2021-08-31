@@ -15,3 +15,4 @@ def get_lang(url):
     lang_class = soup.find_all("td", class_="infobox-data")
     lang = lang_class[1].find("a").text.strip()
     return lang
+

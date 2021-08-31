@@ -81,6 +81,8 @@ def country(country: str):
                 "president": "",
                 "citizen": "",
                 "area": "",
+                "longitude": "",
+                "latitude": "",
                 "currency": "",
                 "timezone": "",
                 "iso3166": ""
