@@ -31,10 +31,12 @@ import fetch
 import requests
 import json
 
+
+import fetch_data
+
 # -------other--------#
 
 app = FastAPI()
-
 
 # ---------openapi docs--------#
 def custom_openapi():
@@ -70,6 +72,7 @@ def country(country: str):
 
         try:
             ct_wiki = wikipedia.page(country)
+            infos = fetch_data.FetchData(country)
         except wikipedia.exceptions.DisambiguationError:
             return {"error 500": f"{country} may refer to something else"}
 
@@ -80,13 +83,13 @@ def country(country: str):
                 "official_language": fetch.get_lang(ct_wiki.url),
                 "capital": fetch.get_capital(ct_wiki.url),
                 "president": fetch.get_president(ct_wiki.url),
-                "citizen": fetch.get_citizen(ct_wiki.url),
-                "area": fetch.get_area(ct_wiki.url),
+                "population": infos.population(),
+                "area": f"{infos.area()}km2",
                 "longitude": fetch.get_longitude(ct_wiki.url),
                 "latitude": fetch.get_latitude(ct_wiki.url),
-                "currency": fetch.get_currency(ct_wiki.url),
-                "timezone": fetch.get_timezn(ct_wiki.url),
-                "iso3166": fetch.get_iso(ct_wiki.url)
+                "currency": infos.currencies()[0],
+                "timezone": infos.timezones(),
+                "iso3166": infos.iso()
             }
         }
         return inv

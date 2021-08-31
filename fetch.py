@@ -27,22 +27,6 @@ def get_president(url):
     return president
 
 
-def get_citizen(url):
-    site = requests.get(url)
-    soup = BeautifulSoup(site.content, "html.parser")
-    classes = soup.find_all("td", class_="infobox-data")
-    citizen = classes[17].text.strip() #Unnötige Sachen weglöschen lassen
-    return citizen
-
-
-def get_area(url):
-    site = requests.get(url)
-    soup = BeautifulSoup(site.content, "html.parser")
-    classes = soup.find_all("td", class_="infobox-data")
-    area = classes[15].text.strip() #Unnötige Sachen weglöschen lassen
-    return area
-
-
 def get_longitude(url):
     site = requests.get(url)
     soup = BeautifulSoup(site.content, "html.parser")
@@ -57,24 +41,3 @@ def get_latitude(url):
     classes = soup.find_all("span", class_="latitude")
     latitude = classes[0].text.strip()
     return latitude
-
-def get_currency(url):
-    site = requests.get(url)
-    soup = BeautifulSoup(site.content, "html.parser")
-    classes = soup.find_all("td", class_="infobox-data")
-    currency = classes[27].text.strip()
-    return currency    
-
-def get_timezn(url):
-    site = requests.get(url)
-    soup = BeautifulSoup(site.content, "html.parser")
-    classes = soup.find_all("td", class_="infobox-data")
-    timezone = classes[28].text.strip()
-    return timezone
-
-def get_iso(url):
-    site = requests.get(url)
-    soup = BeautifulSoup(site.content, "html.parser")
-    classes = soup.find_all("td", class_="infobox-data")
-    iso = classes[31].text.strip()
-    return iso
