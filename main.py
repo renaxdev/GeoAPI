@@ -49,7 +49,7 @@ def custom_openapi():
         routes=app.routes,
     )
     openapi_schema["info"]["x-logo"] = {
-        "url": "https://cdn.discordapp.com/attachments/883257235193614357/883257298259165204/image0.png"
+        "url": "https://cdn.discordapp.com/attachments/871661927485542403/883258275708145684/image0.png"
     }
     app.openapi_schema = openapi_schema
     return app.openapi_schema
