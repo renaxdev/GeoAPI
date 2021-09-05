@@ -4,3 +4,5 @@ requests == 2.25.1
 wikipedia == 1.4.0
 gunicorn == 19.0.0
 uvicorn == 0.15.0
+jinja2 == 2.11.3
+python-multipart == 0.0.5
