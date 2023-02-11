@@ -1,5 +1,8 @@
 # GeoAPI
-![GeoAPI](https://cdn.discordapp.com/attachments/883257235193614357/883257298259165204/image0.png)
+
+#! DISCLAIMER !
+We arent working on the GeoAPI anymore, so the data may be outdated!
+Feel free to fork this and update our project!
 ## About GeoAPI
 GeoAPI is an Open-Source API for data from many different countrys
 Its written in Python using the FastAPI Framework.
